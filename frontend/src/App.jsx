@@ -85,7 +85,15 @@ function AppContent() {
       const response = await fetch('https://aitodolist-3t3h.onrender.com/extract-todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ text: input }),
+        body: JSON.stringify({
+          text: input,
+          user: {
+            google_id: user?.sub || user?.google_id || user?.email, // fallback to email if no google_id
+            email: user?.email,
+            name: user?.name,
+            avatar_url: user?.picture
+          }
+        }),
       })
       const data = await response.json()
       if (response.ok) {
