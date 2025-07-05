@@ -82,7 +82,7 @@ function AppContent() {
     setTodos([])
     setChecked([])
     try {
-      const response = await fetch('http://localhost:3001/extract-todos', {
+      const response = await fetch('https://aitodolist-3t3h.onrender.com/extract-todos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ text: input }),
@@ -347,7 +347,7 @@ function AppContent() {
                           onMouseOut={e => e.currentTarget.style.background = 'transparent'}
                         >
                           <DeleteIcon />
-        </button>
+                        </button>
                       </div>
                     </>
                   )}
