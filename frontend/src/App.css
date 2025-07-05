@@ -14,8 +14,9 @@ body, html, #root {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   box-sizing: border-box;
+  padding-top: 84px; /* height of header bar + spacing */
 }
 
 .card {
@@ -45,6 +46,8 @@ form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  padding: 0 1.2rem;
 }
 
 textarea {
@@ -172,13 +175,155 @@ button[type="submit"]:hover {
   transform: scale(1.07);
 }
 
+/* Header bar styles */
+.header-bar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.7rem 2.2rem 0.7rem 2.2rem;
+  box-sizing: border-box;
+  background: #18181b;
+  min-height: 60px;
+  box-shadow: 0 2px 8px 0 rgba(0,0,0,0.06);
+  border-bottom: 1px solid #23232a;
+  z-index: 10;
+}
+.header-logo-centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: #18181b;
+  object-fit: contain;
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,0.08);
+}
+.header-login {
+  position: absolute;
+  right: 2.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.secondary-btn {
+  background: none !important;
+  color: #b3b3bb !important;
+  border: none;
+  border-radius: 0;
+  padding: 0.2em 0.7em;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: none !important;
+  transition: color 0.18s, text-decoration 0.18s, background 0.18s;
+  outline: none;
+  opacity: 0.85;
+}
+.secondary-btn:hover, .secondary-btn:focus {
+  text-decoration: underline;
+  color: #6366f1 !important;
+  background: #23232a;
+  opacity: 1;
+}
+.logout-btn {
+  color: #b3b3bb !important;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 8px 0 rgba(99,102,241,0.10);
+  margin-right: 2px;
+}
+
+/* Centered logo and heading */
+.center-logo {
+  display: none !important;
+}
+.main-heading {
+  font-size: 2.3rem;
+  font-weight: 800;
+  margin-bottom: 2.2rem;
+  letter-spacing: -1px;
+  color: #f4f4f5;
+  text-align: center;
+}
+
+/* Fixed header bar */
+.fixed-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  background: #18181b;
+  box-shadow: 0 2px 12px 0 rgba(0,0,0,0.08);
+}
+
+.slogan {
+  color: #b3b3bb;
+  font-size: 1.18rem;
+  font-weight: 500;
+  text-align: center;
+  margin-bottom: 2.2rem;
+  margin-top: -1.1rem;
+  letter-spacing: 0.01em;
+}
+
 @media (max-width: 600px) {
   .container {
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 0 0.5rem;
+    padding-top: 70px;
+  }
+  .header-bar {
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    min-height: 48px;
+  }
+  .header-logo-centered {
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .logo-img {
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+  }
+  .header-login {
+    right: 0.7rem;
+  }
+  .user-avatar {
+    width: 24px;
+    height: 24px;
+  }
+  .secondary-btn {
+    font-size: 0.95rem;
+    padding: 0.1em 0.4em;
+  }
+  form {
+    padding: 0 0.2rem;
   }
   .card {
-    padding: 1.2rem 0.5rem 1.2rem 0.5rem;
-    max-width: 98vw;
+    box-sizing: border-box;
+    padding: 1.2rem 0.2rem 1.2rem 0.2rem;
+    max-width: 100%;
+    width: 100%;
+    border-radius: 8px;
+    margin: 0.5rem 0;
   }
   h1 {
     font-size: 2rem;
@@ -191,4 +336,22 @@ button[type="submit"]:hover {
     font-size: 1rem;
     padding: 0.7rem;
   }
+  .main-heading {
+    font-size: 1.3rem;
+    margin-bottom: 1.2rem;
+  }
+  .slogan {
+    font-size: 0.98rem;
+    margin-bottom: 1.2rem;
+    margin-top: -0.7rem;
+  }
+  .input-container {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+.input-container {
+  width: 100%;
+  box-sizing: border-box;
 }

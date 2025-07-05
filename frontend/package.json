@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@radix-ui/themes": "^3.2.1",
+    "@react-oauth/google": "^0.12.2",
     "framer-motion": "^12.23.0",
+    "jwt-decode": "^4.0.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0"
   },
